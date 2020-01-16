@@ -64,6 +64,7 @@ def login_with_api(api_addr, user, pwd):
         if res.status_code == 200:
             change_cont = eval(res.text)
             token = change_cont["access_token"]
+            EX.write_key_value(path, get_login_sheet_name(), "host", api_addr)
             EX.write_key_value(path, get_login_sheet_name(), "access_token", token)
             return True
         else:

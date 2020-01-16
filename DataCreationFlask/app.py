@@ -24,7 +24,7 @@ app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
 # Custom config
-app.config['UPLOAD_PATH'] = os.getcwd().split('form')[0] + '/data/'
+app.config['UPLOAD_PATH'] = os.getcwd() + '/data/'
 app.config['ALLOWED_EXTENSIONS'] = ['xlsx']
 
 # Flask config
@@ -42,15 +42,6 @@ app.config['DROPZONE_MAX_FILES'] = 30
 
 ckeditor = CKEditor(app)
 dropzone = Dropzone(app)
-
-
-def write_config(api, token):
-    file_path = os.getcwd().split('form')[0] + 'data\\login.xlsx'
-    wb = openpyxl.load_workbook(file_path)
-    ws = wb['IOT']
-    ws.cell(row=2, column=2).value = api
-    ws.cell(row=7, column=2).value = token
-    wb.save(file_path)
 
 
 @app.route('/', methods=['GET', 'POST'])
