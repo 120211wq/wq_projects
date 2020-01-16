@@ -35,7 +35,7 @@ class UploadForm(FlaskForm):
 
 # multiple files upload form
 class MultiUploadForm(FlaskForm):
-    photo = MultipleFileField('请按上图格式上传alarm.xlsx', validators=[DataRequired()])
+    photo = MultipleFileField('请按上图格式上传文件', validators=[DataRequired()])
     submit = SubmitField()
 
 

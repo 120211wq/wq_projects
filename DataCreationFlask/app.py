@@ -16,6 +16,7 @@ from src.equipment_alarm import EquipmentAlarm
 from forms import LoginForm, FortyTwoForm, NewPostForm, UploadForm, MultiUploadForm, SigninForm, \
     RegisterForm, SigninForm2, RegisterForm2, RichTextForm
 from src.login import login_with_api
+from src.maintenance import Maintenance
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'secret string')
@@ -74,7 +75,7 @@ def basic():
         username = request.form.get('username')
         password = request.form.get('password')
         env = request.form.get('select')
-        if login_with_api(env,username,password):
+        if login_with_api(env, username, password):
             flash('token获取成功，请继续。。。')
             return redirect(url_for('index'))
         else:
@@ -106,21 +107,6 @@ def get_file(filename):
     return send_from_directory(app.config['UPLOAD_PATH'], filename)
 
 
-@app.route('/uploaded-images', methods=['GET', 'POST'])
-def show_images():
-    if request.method == 'POST':
-        api = request.form.get('api')
-        token = request.form.get('token')
-        if api != '' and token != '':
-            write_config(api, token)
-        alarm = EquipmentAlarm()
-        alarm.add_equipment_alarm()
-        alarm.device_reference()
-        flash('已执行完成，请查看结果')
-        return render_template('submited.html')
-    return render_template('uploaded.html')
-
-
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
@@ -148,28 +134,9 @@ def upload():
 @app.route('/multi-upload', methods=['GET', 'POST'])
 def multi_upload():
     form = MultiUploadForm()
-
     if request.method == 'POST':
         filenames = []
-
-        # check csrf token
-        # try:
-        #     validate_csrf(form.csrf_token.data)
-        # except ValidationError:
-        #     flash('CSRF token error.')
-        #     return redirect(url_for('multi_upload'))
-
-        # check if the post request has the file part
-        # if 'photo' not in request.files:
-        #     flash('This field is required.')
-        #     return redirect(url_for('multi_upload'))
         for f in request.files.getlist('photo'):
-            # if user does not select file, browser also
-            # submit a empty part without filename
-            # if f.filename == '':
-            #     flash('No selected file.')
-            #    return redirect(url_for('multi_upload'))
-            # check the file extension
             if f and allowed_file(f.filename):
                 filename = f.filename
                 f.save(os.path.join(
@@ -182,10 +149,31 @@ def multi_upload():
         alarm = EquipmentAlarm()
         alarm.add_equipment_alarm()
         alarm.device_reference()
-        flash('已执行完成，请查看结果')
+        flash('告警规则已执行完成，请查看结果')
         return redirect(url_for('index'))
-
     return render_template('upload.html', form=form)
+
+
+@app.route('/maintance', methods=['GET', 'POST'])
+def maintance():
+    form = MultiUploadForm()
+    if request.method == 'POST':
+        filenames = []
+        for f in request.files.getlist('photo'):
+            if f and allowed_file(f.filename):
+                filename = f.filename
+                f.save(os.path.join(
+                    app.config['UPLOAD_PATH'], filename
+                ))
+                filenames.append(filename)
+            else:
+                flash('文件格式不正确')
+                return redirect(url_for('multi_upload'))
+        pd = Maintenance()
+        pd.create_maintenance_task()
+        flash('巡检任务已执行完成，请查看结果')
+        return redirect(url_for('index'))
+    return render_template('maintance.html', form=form)
 
 
 @app.route('/dropzone-upload', methods=['GET', 'POST'])
@@ -293,5 +281,5 @@ def upload_for_ckeditor():
 
 
 if __name__ == '__main__':
-    CORS(app,supports_credentials=True)
+    CORS(app, supports_credentials=True)
     app.run(host='0.0.0.0', port=8000, debug=True)
