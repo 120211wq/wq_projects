@@ -17,10 +17,10 @@ from flask_dropzone import Dropzone
 from flask_wtf.csrf import validate_csrf
 from wtforms import ValidationError
 
-from DataCreationFlask.src.equipment_alarm import EquipmentAlarm
+from src.equipment_alarm import EquipmentAlarm
 from forms import LoginForm, FortyTwoForm, NewPostForm, UploadForm, MultiUploadForm, SigninForm, \
     RegisterForm, SigninForm2, RegisterForm2, RichTextForm
-from DataCreationFlask.src.login import login_with_api
+from src.login import login_with_api
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'secret string')

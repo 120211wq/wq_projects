@@ -1,9 +1,9 @@
 # coding=utf-8
 import requests
 import traceback
-from DataCreationFlask.common.function import find_path
-from DataCreationFlask.common import excel_unit as EX
-from DataCreationFlask.src.login import get_host, get_login_sheet_name
+from common.function import find_path
+from common import excel_unit as EX
+from .login import get_host, get_login_sheet_name
 
 global false, true
 false = False

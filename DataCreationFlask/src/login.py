@@ -3,8 +3,8 @@ import traceback
 
 import requests
 import os
-from DataCreationFlask.common import excel_unit as EX
-from DataCreationFlask.common.function import find_path
+from common import excel_unit as EX
+from common.function import find_path
 
 curpath = os.path.dirname(os.path.realpath(__file__))
 
