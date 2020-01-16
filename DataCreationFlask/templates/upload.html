@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% from 'macros.html' import form_field %}
+
+{% block content %}
+<h2>告警规则</h2>
+<h6>--如果是所有设备，设备mac字段请输入0</h6>
+<h6>--表名为"告警规则"</h6>
+<h6>--单元格数据不可用（=A1+B1）拼接</h6>
+<img src="/static/alarm_sheet.png" width="61px" height="41px">
+<a href="/static/alarm.png">
+    <img src="/static/alarm.png" width="750px" height="100px">
+</a>
+<form id=form1 method="post" enctype="multipart/form-data">
+
+    {{ form.csrf_token }}
+    {{ form_field(form.photo) }}
+    <button class="submit-btn" >提交</button>
+</form>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $(function() {
+        $(".submit-btn").click(function() {
+            $(this).text('已提交，请等待结果返回...');
+            $(this).attr('disabled', true);
+            $('#form1').submit();
+        });
+    });
+</script>
+{% endblock %}

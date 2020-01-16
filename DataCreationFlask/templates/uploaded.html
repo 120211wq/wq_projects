@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% from 'macros.html' import form_field %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if session.filenames %}
+<!--{% for filename in session.filenames %}-->
+<!--<a href="{{ url_for('get_file', filename=filename) }}" target="_blank">-->
+<!--    <img src="{{ url_for('get_file', filename=filename) }}">-->
+<!--</a>-->
+<!--{% endfor %}-->
+<form id=form1 method="post">
+    <label for="api">api地址：</label><br>
+    <input type="text" name="api" placeholder="请输入api地址" size="50"><br>
+    <label for="token">token：</label><br>
+    <input type="text" name="token" placeholder="请输入token" size="110"><br>
+    <button class="submit-btn" >提交</button>
+</form>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $(function() {
+        $(".submit-btn").click(function() {
+            $(this).text('已提交，请等待结果返回...');
+            $(this).attr('disabled', true);
+            $('#form1').submit();
+        });
+    });
+</script>
+{% endif %}
+{% endblock %}
