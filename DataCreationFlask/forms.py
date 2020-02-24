@@ -16,6 +16,8 @@ class LoginForm(FlaskForm):
     # remember = BooleanField('Remember me')
     submit = SubmitField('Log in')
 
+class DownLoadForm(FlaskForm):
+    submit = SubmitField('点击下载excel文件')
 
 # custom validator
 class FortyTwoForm(FlaskForm):
@@ -36,6 +38,10 @@ class UploadForm(FlaskForm):
 # multiple files upload form
 class MultiUploadForm(FlaskForm):
     photo = MultipleFileField('请按上图格式上传文件', validators=[DataRequired()])
+    submit = SubmitField()
+
+class MultiUploadForm2(FlaskForm):
+    photo = MultipleFileField('', validators=[DataRequired()])
     submit = SubmitField()
 
 

@@ -14,9 +14,10 @@ from wtforms import ValidationError
 
 from src.equipment_alarm import EquipmentAlarm
 from forms import LoginForm, FortyTwoForm, NewPostForm, UploadForm, MultiUploadForm, SigninForm, \
-    RegisterForm, SigninForm2, RegisterForm2, RichTextForm
+    RegisterForm, SigninForm2, RegisterForm2, RichTextForm, MultiUploadForm2, DownLoadForm
 from src.login import login_with_api
 from src.maintenance import Maintenance
+from src.xmind_to_xlsx import xmind_to_xlsx
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'secret string')
@@ -25,7 +26,8 @@ app.jinja_env.lstrip_blocks = True
 
 # Custom config
 app.config['UPLOAD_PATH'] = os.getcwd() + '/data/'
-app.config['ALLOWED_EXTENSIONS'] = ['xlsx']
+app.config['DownLOAD_PATH'] = os.getcwd() + '/src/excel_output/'
+app.config['ALLOWED_EXTENSIONS'] = ['xlsx', 'xmind']
 
 # Flask config
 # set request body's max length
@@ -72,6 +74,13 @@ def basic():
         else:
             flash('token获取失败，请检查账户信息与环境是否一致')
     return render_template('basic.html', form=form)
+
+@app.route('/download/<filename>', methods=['GET', 'POST'])
+def download(filename):
+    form = DownLoadForm()
+    if request.method == 'POST':
+        return send_from_directory(app.config['DownLOAD_PATH'],filename=filename,as_attachment=True)
+    return render_template('download.html', form=form)
 
 
 @app.route('/bootstrap', methods=['GET', 'POST'])
@@ -159,12 +168,66 @@ def maintance():
                 filenames.append(filename)
             else:
                 flash('文件格式不正确')
-                return redirect(url_for('multi_upload'))
+                return redirect(url_for('maintance'))
         pd = Maintenance()
         pd.create_maintenance_task()
         flash('巡检任务已执行完成，请查看结果')
         return redirect(url_for('index'))
     return render_template('maintance.html', form=form)
+
+
+@app.route('/xmind2excel', methods=['GET', 'POST'])
+def xmind2excel():
+    form = MultiUploadForm2()
+    if request.method == 'POST':
+        filenames = []
+        excel = ''
+        xmind = ''
+        if len(request.files.getlist('photo')) <2:
+            flash('请同时上传xmind和模板文件')
+            return redirect(url_for('xmind2excel'))
+        if len(request.files.getlist('photo')) >2:
+            flash('上传文件数过多')
+            return redirect(url_for('xmind2excel'))
+        if len(request.files.getlist('photo')) ==2:
+            a = 0
+            b = 0
+            for f in request.files.getlist('photo'):
+                if 'xls' in f.filename:
+                    a = 1
+                if 'xmind' in f.filename:
+                    b = 1
+            if a==1 and b==1:
+                pass
+            else:
+                flash('请同时上传xmind和模板文件')
+                return redirect(url_for('xmind2excel'))
+        for f in request.files.getlist('photo'):
+            if f and allowed_file(f.filename):
+                filename = f.filename
+                if 'xls' in filename:
+                    excel = filename
+                elif 'xmind' in filename:
+                    xmind = filename
+                f.save(os.path.join(
+                    app.config['UPLOAD_PATH'], filename
+                ))
+                filenames.append(filename)
+            else:
+                flash('文件格式不正确')
+                return redirect(url_for('xmind2excel'))
+        print(app.config['UPLOAD_PATH']+excel)
+        obj = xmind_to_xlsx()
+        obj.load_xmind(app.config['UPLOAD_PATH']+xmind, app.config['UPLOAD_PATH']+excel)
+        error = obj.write_excel(app.config['UPLOAD_PATH']+excel)
+        obj.modify_public_excel()
+        print('error:'+ error)
+        if error == '':
+            flash('文件文件已转换，请下载结果')
+        else:
+            flash(error)
+            return redirect(url_for('download',filename = obj.zip_name))
+    return render_template('xmind2excel.html', form=form)
 
 
 @app.route('/dropzone-upload', methods=['GET', 'POST'])
