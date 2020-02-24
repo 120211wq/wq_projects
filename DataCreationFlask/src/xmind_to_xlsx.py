@@ -109,8 +109,13 @@ class xmind_to_xlsx():
                         else:
                             for k in range(len(func_topics)):
                                 case_title = func_topics[k]['title']
-                                priority = case_title.split('_')[1][-1]
-                                case_name = case_title.split('_')[2]
+                                if ':' in case_title:
+                                    priority = case_title.split(':')[1][-1]
+                                elif '：' in case_title:
+                                    priority = case_title.split('：')[1][-1]
+                                else:
+                                    priority = case_title.split('_')[1][-1]
+                                case_name = case_title.split('_')[-1]
                                 case_public = []
                                 case_candao = []
                                 setp = ''
