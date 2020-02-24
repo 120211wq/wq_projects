@@ -224,6 +224,7 @@ def xmind2excel():
         print('error:'+ error)
         if error == '':
             flash('文件文件已转换，请下载结果')
+            return redirect(url_for('download', filename=obj.zip_name))
         else:
             flash(error)
             return redirect(url_for('download',filename = obj.zip_name))
