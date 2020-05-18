@@ -32,7 +32,7 @@ class test_task(TaskSet):
     @task()
     def test_upload(self):
         # 定义requests的请求头
-        header = {"Group":"GATEWAY-REGISTER-DEMO","stage":"TEST","Content-Type":"application/json","Access-Token":'RkUwNzU1NTg1MkVGM0VDMzNCQTAyRjlEMDg1OTA2NkZBMzRDNzZGNDg2QjY4RDFENzUxNDVFMzdGQkI2RUUxQg=='}
+        header = {"Group":"GATEWAY-REGISTER-DEMO","stage":"TEST","Content-Type":"application/json","Access-Token":'NDY5M0M5NzBCMUE3Mzg4OTlBNjJBQTVCODAyODY5QkJDOEFCMzI1RjVCNEU4NEI2QkUyODdDOUQxOUU0NTU4QQ=='}
         url = 'https://zhsq-iot-api2.sunac.com.cn/v2/service/iot-gateway-register/bench-auth?name=name&age=18'
 
         # r是包含所有响应内容的一个对象
