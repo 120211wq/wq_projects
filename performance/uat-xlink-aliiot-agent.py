@@ -36,12 +36,12 @@ class test_task(TaskSet):
     def test_upload(self):
         # 定义requests的请求头
         header = {"Content-Type":"application/json"}
-        url = 'http://zhsq-iot-api.sunac.com.cn/v2/data/http2pulsar'
+        url = 'http://api-test.sunac.com.cn/v2/data/http2pulsar'
         body = {
             "topic": "persistent://public/default/service/aliiot/amqp",
             "payload": {
-                "topic": "/a1EwHSDQsKn/ABCD/thing/event/property/post",
-                "content": "{\"deviceType\":\"CustomCategory\",\"iotId\":\"Pu26zvQoWHuwq56UyrzB000100\",\"requestId\":\"1234\",\"productKey\":\"a1EwHSDQsKn\",\"gmtCreate\":1589961609862,\"deviceName\":\"ABCD\",\"items\":{\"Pressure\":{\"value\":1324,\"time\":1589961609869}}}"
+                "topic": "/a1V2VwXd3RW/visual_gw_haikang_1/thing/event/property/post",
+                "content": "{\"deviceType\":\"VisionAccessNode\",\"iotId\":\"ORfCNN6CreXloo5isw9b000100\",\"requestId\":\"217292\",\"productKey\":\"a1V2VwXd3RW\",\"gmtCreate\":1589874850642,\"deviceName\":\"visual_gw_haikang_1\",\"items\":{\"MACAddress\":{\"value\":\"ecd68a4b5540\",\"time\":1589874850644}}}"
             }
         }
         # r是包含所有响应内容的一个对象
@@ -58,4 +58,4 @@ class websitUser(HttpLocust):
     task_set = test_task
 
     # 执行事物之间用户等待时间的下界，单位毫秒，相当于lr中的think time
-    wait_time = between(1, 1)
+    wait_time = between(0, 0)
