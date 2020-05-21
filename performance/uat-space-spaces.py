@@ -35,7 +35,7 @@ class test_task(TaskSet):
     @task()
     def test_upload(self):
         # 定义requests的请求头
-        header = {"Content-Type":"application/json","Access-Token":'MUQyMjM4QzFBMzIzODVENzRBOTE0NEVFOTk5QkU3RjJDMzM2MDAwQUYzQkI2RDEyQTcwODQ4QUQyMTEwQTAxOA=='}
+        header = {"Content-Type":"application/json","Access-Token":'NDUzOUE2MUQyRThDNUEyNjZEQ0Y2MDgzMDgwQ0UyQUI0ODBFQjEwN0E3QkQ5QUUwOUFEMTIxNjRGNDFGOUIzQg=='}
         url = 'http://zhsq-iot-api.sunac.com.cn/v2/space-service/spaces'
         body = {
             "statisticsed":false,
