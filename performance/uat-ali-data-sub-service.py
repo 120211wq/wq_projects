@@ -36,12 +36,12 @@ class test_task(TaskSet):
     def test_upload(self):
         # 定义requests的请求头
         header = {"Content-Type":"application/json"}
-        url = 'http://zhsq-iot-api.sunac.com.cn/v2/aliDataSubService/26f8dc9b6c32449a/data/add'
+        url = 'http://api-test.sunac.com.cn/v2/aliDataSubService/2e2d4a8ecf4d4187/data/add'
         body = {
             "dataIds":[
-                2083984
+                325749
             ],
-            "modelId":"iotx_face_record_model",
+            "modelId":"VideoEventDetail",
             "operateType":"update"
         }
         # r是包含所有响应内容的一个对象
