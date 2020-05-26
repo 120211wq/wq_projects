@@ -39,10 +39,8 @@ class test_task(TaskSet):
         url = 'http://api-test.sunac.com.cn/v2/data/http2pulsar'
         body = {
             "topic": "persistent://public/default/service/aliiot/amqp",
-            "payload": {
-                "topic": "/a1V2VwXd3RW/visual_gw_haikang_1/thing/event/property/post",
-                "content": "{\"deviceType\":\"VisionAccessNode\",\"iotId\":\"ORfCNN6CreXloo5isw9b000100\",\"requestId\":\"217292\",\"productKey\":\"a1V2VwXd3RW\",\"gmtCreate\":1589874850642,\"deviceName\":\"visual_gw_haikang_1\",\"items\":{\"MACAddress\":{\"value\":\"ecd68a4b5540\",\"time\":1589874850644}}}"
-            }
+            "payload":{"topic":"/a1YsEotp3oh/dev_video_intercom_haikang_02/thing/event/checkPhoneNumber/post","content":"{\"deviceType\":\"VideoIntercomDoor\",\"identifier\":\"checkPhoneNumber\",\"iotId\":\"4ziCoSJ302a6cwORKOon000100\",\"requestId\":\"123\",\"name\":\"校验手机号\",\"time\":1590461600378,\"type\":\"info\",\"productKey\":\"a1YsEotp3oh\",\"deviceName\":\"dev_video_intercom_haikang_02\",\"value\":{\"phoneNumber\":\"44444\"}}"}
+
         }
         # r是包含所有响应内容的一个对象
         r = self.client.post(url, json=body, headers=header)
@@ -58,4 +56,4 @@ class websitUser(HttpLocust):
     task_set = test_task
 
     # 执行事物之间用户等待时间的下界，单位毫秒，相当于lr中的think time
-    wait_time = between(0, 0)
+    wait_time = between(1, 1)
