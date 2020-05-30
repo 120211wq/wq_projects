@@ -49,7 +49,7 @@ class test_task(TaskSet):
     def test_upload(self):
         # 定义requests的请求头
         # token = self.locust.queue_data.get()
-        header = {"Content-Type":"application/json","Access-Token":'QjRGMDA4MDIyMERDMzAyQUYwNEE0MTc2MTJGNzI3RjA3Q0JENDJCRjBBQzc5NTJFRjY4MDg1QjVCQzRCMkZBRg=='}
+        header = {"Content-Type":"application/json","Access-Token":'QTk0QTNCN0U0OTI1RTUyNkIwQTZFNjJCQURENkVCOTUzMDMwMjE2MTg1NDUxNzVFQjA2QUIzOThDQkEzMTA2Nw=='}
         url = 'http://zhsq-iot-api.sunac.com.cn/v2/corp/permission/resource/ui-list/mobile'
         body = {
             "offset":0,
