@@ -49,7 +49,7 @@ class test_task(TaskSet):
     def test_upload(self):
         # 定义requests的请求头
         # token = self.locust.queue_data.get()
-        header = {"Content-Type":"application/json","Access-Token":'QjRGMDA4MDIyMERDMzAyQUYwNEE0MTc2MTJGNzI3RjA3Q0JENDJCRjBBQzc5NTJFRjY4MDg1QjVCQzRCMkZBRg='}
+        header = {"Content-Type":"application/json","Access-Token":'QjRGMDA4MDIyMERDMzAyQUYwNEE0MTc2MTJGNzI3RjA3Q0JENDJCRjBBQzc5NTJFRjY4MDg1QjVCQzRCMkZBRg=='}
         url = 'http://zhsq-iot-api.sunac.com.cn/v2/corp/permission/resource/ui-list/mobile'
         body = {
             "offset":0,
@@ -64,6 +64,7 @@ class test_task(TaskSet):
         r = self.client.post(url, json=body, headers=header)
         # 这里可以使用assert断言请求是否正确，也可以使用if判断
         # self.locust.queue_data.put_nowait(token)
+        print(eval(r.text))
         assert eval(r.text)['data']['count'] == 2
 
 
