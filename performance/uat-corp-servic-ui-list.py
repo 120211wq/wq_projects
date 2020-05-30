@@ -48,8 +48,8 @@ class test_task(TaskSet):
     @task(1)
     def test_upload(self):
         # 定义requests的请求头
-        token = self.locust.queue_data.get()
-        header = {"Content-Type":"application/json","Access-Token":token}
+        # token = self.locust.queue_data.get()
+        header = {"Content-Type":"application/json","Access-Token":'QjRGMDA4MDIyMERDMzAyQUYwNEE0MTc2MTJGNzI3RjA3Q0JENDJCRjBBQzc5NTJFRjY4MDg1QjVCQzRCMkZBRg='}
         url = 'http://zhsq-iot-api.sunac.com.cn/v2/corp/permission/resource/ui-list/mobile'
         body = {
             "offset":0,
@@ -63,7 +63,7 @@ class test_task(TaskSet):
         # r是包含所有响应内容的一个对象
         r = self.client.post(url, json=body, headers=header)
         # 这里可以使用assert断言请求是否正确，也可以使用if判断
-        self.locust.queue_data.put_nowait(token)
+        # self.locust.queue_data.put_nowait(token)
         assert eval(r.text)['data']['count'] == 2
 
 
@@ -74,8 +74,8 @@ class websitUser(HttpLocust):
     task_set = test_task
     # 执行事物之间用户等待时间的下界，单位毫秒，相当于lr中的think time
     wait_time = between(1, 1)
-    queue_data = queue.Queue()
-    for i in range(1, 11):
-        token = login('YC' + str(i))
-        queue_data.put_nowait(token)
+    # queue_data = queue.Queue()
+    # for i in range(1, 11):
+    #     token = login('YC' + str(i))
+    #     queue_data.put_nowait(token)
 
