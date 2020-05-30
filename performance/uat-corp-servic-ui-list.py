@@ -64,7 +64,7 @@ class test_task(TaskSet):
         r = self.client.post(url, json=body, headers=header)
         # 这里可以使用assert断言请求是否正确，也可以使用if判断
         # self.locust.queue_data.put_nowait(token)
-        print(eval(r.text))
+        # print(eval(r.text))
         assert eval(r.text)['data']['count'] == 2
 
 
