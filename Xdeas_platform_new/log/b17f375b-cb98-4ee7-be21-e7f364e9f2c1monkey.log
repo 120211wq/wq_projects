@@ -1,0 +1,777 @@
+  bash arg: -p
+  bash arg: com.yishouapp.fumi
+  bash arg: --throttle
+  bash arg: 500
+  bash arg: --ignore-timeouts
+  bash arg: --ignore-crashes
+  bash arg: --monitor-native-crashes
+  bash arg: -v
+  bash arg: -v
+  bash arg: -v
+  bash arg: 500
+:Monkey: seed=1605357923048 count=500
+:AllowPackage: com.yishouapp.fumi
+:IncludeCategory: android.intent.category.LAUNCHER
+:IncludeCategory: android.intent.category.MONKEY
+// Selecting main activities from category android.intent.category.LAUNCHER
+//   - NOT USING main activity com.android.gallery3d.vivo.GalleryTabActivity (from package com.vivo.gallery)
+//   - NOT USING main activity com.android.bbkmusic.WidgetToTrackActivity (from package com.android.bbkmusic)
+//   - NOT USING main activity com.android.activity.ReclistActivity (from package com.android.bbksoundrecorder)
+//   - NOT USING main activity com.android.camera.CameraActivity (from package com.android.camera)
+//   - NOT USING main activity com.android.contacts.DialtactsContactsEntryActivity (from package com.android.contacts)
+//   - NOT USING main activity com.android.dialer.TwelveKeyDialer (from package com.android.dialer)
+//   - NOT USING main activity com.android.mms.ui.ConversationList (from package com.android.mms)
+//   - NOT USING main activity com.android.settings.Settings (from package com.android.settings)
+//   - NOT USING main activity com.bbk.calendar.MainActivity (from package com.bbk.calendar)
+//   - NOT USING main activity com.bbk.theme.Theme (from package com.bbk.theme)
+//   - NOT USING main activity com.chaozh.iReader.ui.activity.WelcomeActivity (from package com.chaozh.iReader)
+//   - NOT USING main activity com.mobile.iroaming.activity.MainActivity (from package com.mobile.iroaming)
+//   - NOT USING main activity com.vivo.health.main.activity.GuideActivity (from package com.vivo.health)
+//   - NOT USING main activity com.baidu.baidumaps.WelcomeScreen (from package com.baidu.BaiduMap)
+//   - NOT USING main activity com.qihoo.appstore.home.LauncherActivity (from package com.qihoo.appstore)
+//   - NOT USING main activity com.vivo.vhome.ui.VHomeActivity (from package com.vivo.vhome)
+//   - NOT USING main activity org.mozilla.firefox.App (from package org.mozilla.firefox)
+//   - NOT USING main activity com.android.BBKClock.Timer (from package com.android.BBKClock)
+//   - NOT USING main activity com.android.VideoPlayer.VideoPlayer (from package com.android.VideoPlayer)
+//   - NOT USING main activity com.android.bbkcalculator.Calculator (from package com.android.bbkcalculator)
+//   - NOT USING main activity com.android.filemanager.FileManagerActivity (from package com.android.filemanager)
+//   - NOT USING main activity com.android.notes.Notes (from package com.android.notes)
+//   - NOT USING main activity com.bbk.appstore.ui.AppStore (from package com.bbk.appstore)
+//   - NOT USING main activity com.bbk.cloud.activities.BBKCloudHomeScreen (from package com.bbk.cloud)
+//   - NOT USING main activity com.iqoo.secure.MainGuideActivity (from package com.iqoo.secure)
+//   - NOT USING main activity com.vivo.Tips.MainActivity (from package com.vivo.Tips)
+//   - NOT USING main activity com.vivo.agent.view.activities.JoviHomeNewActivity (from package com.vivo.agent)
+//   - NOT USING main activity com.vivo.browser.BrowserActivity (from package com.vivo.browser)
+//   - NOT USING main activity com.vivo.compass.CalibrationActivity (from package com.vivo.compass)
+//   - NOT USING main activity com.vivo.easyshare.activity.SplashScreenActivity (from package com.vivo.easyshare)
+//   - NOT USING main activity com.vivo.email.activity.Welcome (from package com.vivo.email)
+//   - NOT USING main activity com.vivo.game.ui.LogoActivity (from package com.vivo.game)
+//   - NOT USING main activity com.vivo.space.ui.LogoActivity (from package com.vivo.space)
+//   - NOT USING main activity com.vivo.wallet.StartPageActivity (from package com.vivo.wallet)
+//   - NOT USING main activity com.vivo.weather.WeatherMain (from package com.vivo.weather)
+//   - NOT USING main activity com.mqunar.splash.SplashActivity (from package com.Qunar)
+//   - NOT USING main activity com.UCMobile.main.UCMobile (from package com.UCMobile)
+//   - NOT USING main activity com.alibaba.android.rimet.biz.LaunchHomeActivity (from package com.alibaba.android.rimet)
+//   - NOT USING main activity com.android.bbk.lockscreen3.LockScreenActivity (from package com.android.bbk.lockscreen3)
+//   - NOT USING main activity com.baidu.haokan.app.activity.HomeActivity (from package com.baidu.haokan)
+//   - NOT USING main activity com.baidu.searchbox.SplashActivity (from package com.baidu.searchbox)
+//   - NOT USING main activity com.bbk.iqoo.feedback.activities.UserFeedBackActivity (from package com.bbk.iqoo.feedback)
+//   - NOT USING main activity com.eg.android.AlipayGphone.AlipayLogin (from package com.eg.android.AlipayGphone)
+//   - NOT USING main activity com.fumikeji.cangchu.SplashActivity (from package com.fumikeji.cangchu)
+//   - NOT USING main activity com.fumikeji.crm.SplashActivity (from package com.fumikeji.crm)
+//   - NOT USING main activity com.fumikeji.dangkou.SplashActivity (from package com.fumikeji.dangkou)
+//   - NOT USING main activity com.jingdong.app.mall.main.MainActivity (from package com.jingdong.app.mall)
+//   - NOT USING main activity com.oray.sunlogin.application.Main (from package com.oray.sunlogin)
+//   - NOT USING main activity com.pp.assistant.activity.MainActivity (from package com.pp.assistant)
+//   - NOT USING main activity com.qiyi.video.WelcomeActivity (from package com.qiyi.video)
+//   - NOT USING main activity com.meituan.android.pt.homepage.activity.MainActivity (from package com.sankuai.meituan)
+//   - NOT USING main activity com.sina.weibo.SplashActivity (from package com.sina.weibo)
+//   - NOT USING main activity com.ss.android.article.news.activity.MainActivity (from package com.ss.android.article.news)
+//   - NOT USING main activity com.ss.android.ugc.aweme.splash.SplashActivity (from package com.ss.android.ugc.aweme)
+//   - NOT USING main activity com.szsbay.smarthome.module.MainActivity (from package com.szsbay.unicom)
+//   - NOT USING main activity com.taobao.tao.welcome.Welcome (from package com.taobao.taobao)
+//   - NOT USING main activity com.tencent.mm.ui.LauncherUI (from package com.tencent.mm)
+//   - NOT USING main activity com.tencent.mobileqq.activity.SplashActivity (from package com.tencent.mobileqq)
+//   - NOT USING main activity com.tencent.qnet.ui.login.LoginActivity (from package com.tencent.qnet)
+//   - NOT USING main activity com.tencent.qqlive.ona.activity.SplashHomeActivity (from package com.tencent.qqlive)
+//   - NOT USING main activity com.tencent.qqmusic.activity.AppStarterActivity (from package com.tencent.qqmusic)
+//   - NOT USING main activity com.timeweekly.timefinance.mvp.ui.activity.SplashActivity (from package com.timeweekly.timefinance)
+//   - NOT USING main activity com.vivo.childrenmode.activity.ChildHomeActivity (from package com.vivo.childrenmode)
+//   - NOT USING main activity com.wuba.activity.launch.LaunchActivity (from package com.wuba)
+//   - NOT USING main activity com.ximalaya.ting.android.host.activity.WelComeActivity (from package com.ximalaya.ting.android)
+//   - NOT USING main activity com.xingin.xhs.activity.SplashActivity (from package com.xingin.xhs)
+//   - NOT USING main activity com.xueqiu.android.view.WelcomeActivityAlias (from package com.xueqiu.android)
+//   - NOT USING main activity com.xunmeng.pinduoduo.ui.activity.MainFrameActivity (from package com.xunmeng.pinduoduo)
+//   + Using main activity com.yishouapp.fumi.activity.ApiChoseActivity (from package com.yishouapp.fumi)
+//   - NOT USING main activity io.appium.settings.Settings (from package io.appium.settings)
+// Selecting main activities from category android.intent.category.MONKEY
+//   - NOT USING main activity com.android.phone.MobileNetworkSettings (from package com.android.phone)
+//   - NOT USING main activity com.android.settings.Settings$RunningServicesActivity (from package com.android.settings)
+//   - NOT USING main activity com.android.settings.Settings$StorageUseActivity (from package com.android.settings)
+//   - NOT USING main activity com.bbk.launcher2.Launcher (from package com.bbk.launcher2)
+//   - NOT USING main activity com.bbk.scene.launcher.theme.SceneLauncherThemeMainActivity (from package com.bbk.scene.launcher.theme)
+//   - NOT USING main activity com.iqoo.engineermode.EngineerMode (from package com.iqoo.engineermode)
+//   - NOT USING main activity com.vivo.childrenmode.ui.activity.MainActivity (from package com.vivo.childrenmode)
+//   - NOT USING main activity com.vivo.systemui.statusbar.notification.settings.StatusbarSettingActivity (from package com.android.systemui)
+//   - NOT USING main activity com.vivo.systemui.statusbar.notification.settings.channels.NotificationSettingsActivity (from package com.android.systemui)
+//   - NOT USING main activity com.vivo.keyguard.views.themes.nature.iconset.IconSettings (from package com.android.systemui)
+//   - NOT USING main activity com.android.keyguard.vivo.VivoConfirmActivity (from package com.android.systemui)
+//   - NOT USING main activity com.android.keyguard.vivo.VivoFaceRecommendDialog (from package com.android.systemui)
+//   - NOT USING main activity com.vivo.shortcutcenter.ui.HomeActivity (from package com.vivo.shortcutcenter)
+//   - NOT USING main activity com.vivo.smartshot.ui.TestSmartShotActivity (from package com.vivo.smartshot)
+//   - NOT USING main activity com.vivo.upslide.recents.RecentsActivity (from package com.vivo.upslide)
+//   - NOT USING main activity com.vivo.upslide.settings.settings.NavigationSettingsActivity (from package com.vivo.upslide)
+//   - NOT USING main activity com.vivo.upslide.settings.settings.AboutHomeIndicatorActivity (from package com.vivo.upslide)
+//   - NOT USING main activity com.vivo.upslide.settings.settings.FullScreenDoubleSlideActivity (from package com.vivo.upslide)
+//   - NOT USING main activity com.vivo.upslide.settings.settings.GestureOrderActivity (from package com.vivo.upslide)
+//   - NOT USING main activity com.vivo.upslide.settings.settings.NavigationGestureModeActivity (from package com.vivo.upslide)
+//   - NOT USING main activity com.vivo.upslide.settings.settings.GestureStyleActivity (from package com.vivo.upslide)
+//   - NOT USING main activity com.vivo.upslide.settings.settings.NavigationLandscapePositionActivity (from package com.vivo.upslide)
+//   - NOT USING main activity com.vivo.upslide.settings.settings.LandscapeGesturePosActivity (from package com.vivo.upslide)
+//   - NOT USING main activity com.vivo.upslide.settings.settings.NavigationStyleActivity (from package com.vivo.upslide)
+//   - NOT USING main activity com.vivo.upslide.settings.settings.SwitchAppActivity (from package com.vivo.upslide)
+//   - NOT USING main activity com.vivo.upslide.settings.settings.export.IndicatorDemoActivity (from package com.vivo.upslide)
+// Seeded: 1605357923048
+// Event percentages:
+//   0: 15.0%
+//   1: 10.0%
+//   2: 2.0%
+//   3: 15.0%
+//   4: -0.0%
+//   5: -0.0%
+//   6: 25.0%
+//   7: 15.0%
+//   8: 2.0%
+//   9: 2.0%
+//   10: 1.0%
+//   11: 13.0%
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.yishouapp.fumi/.activity.ApiChoseActivity;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.yishouapp.fumi/.activity.ApiChoseActivity } in package com.yishouapp.fumi
+    // activityResuming(com.yishouapp.fumi)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 3    // KEYCODE_HOME
+:Sending Key (ACTION_UP): 3    // KEYCODE_HOME
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.bbk.launcher2/.Launcher } in package com.bbk.launcher2
+    // activityResuming(com.bbk.launcher2)
+    // Rejecting resume of package com.bbk.launcher2
+:Sending Trackball (ACTION_MOVE): 0:(0.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-2.0)
+:Sending Trackball (ACTION_DOWN): 0:(0.0,0.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(259.0,632.0)
+:Sending Touch (ACTION_UP): 0:(269.73315,635.0316)
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-4.0)
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 132    // KEYCODE_F2
+:Sending Key (ACTION_UP): 132    // KEYCODE_F2
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(336.0,1954.0)
+:Sending Touch (ACTION_UP): 0:(336.4141,1951.9362)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 255    // KEYCODE_TV_ZOOM_MODE
+:Sending Key (ACTION_UP): 255    // KEYCODE_TV_ZOOM_MODE
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(824.0,1979.0)
+:Sending Touch (ACTION_UP): 0:(824.31195,1994.5417)
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-1.0)
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 24    // KEYCODE_VOLUME_UP
+:Sending Key (ACTION_UP): 24    // KEYCODE_VOLUME_UP
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 213    // KEYCODE_MUHENKAN
+:Sending Key (ACTION_UP): 213    // KEYCODE_MUHENKAN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 265    // KEYCODE_STEM_1
+:Sending Key (ACTION_UP): 265    // KEYCODE_STEM_1
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(1070.0,1809.0)
+:Sending Touch (ACTION_POINTER_DOWN 1): 0:(1078.5645,1801.8672) 1:(302.0,1500.0)
+:Sending Touch (ACTION_MOVE): 0:(1080.0,1800.7769) 1:(305.74216,1496.979)
+    //[calendar_time:2020-11-12 17:32:59.909  system_uptime:288306909]
+    // Sending event #100
+:Sending Touch (ACTION_MOVE): 0:(1080.0,1795.9032) 1:(311.2924,1495.6241)
+:Sending Touch (ACTION_MOVE): 0:(1080.0,1792.866) 1:(313.65347,1487.1193)
+:Sending Touch (ACTION_MOVE): 0:(1080.0,1790.1865) 1:(316.40872,1485.2665)
+:Sending Touch (ACTION_MOVE): 0:(1080.0,1784.9446) 1:(327.06207,1483.4066)
+:Sending Touch (ACTION_MOVE): 0:(1080.0,1778.5488) 1:(340.06873,1482.0068)
+:Sending Touch (ACTION_POINTER_UP 1): 0:(1080.0,1770.7721) 1:(349.64673,1472.52)
+:Sending Touch (ACTION_UP): 0:(1080.0,1768.6244)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 35    // KEYCODE_G
+:Sending Key (ACTION_UP): 35    // KEYCODE_G
+    // Rejecting start of Intent { act=android.search.action.GLOBAL_SEARCH cmp=com.baidu.searchbox/com.baidu.search.fastsearch.SearchActivity } in package com.baidu.searchbox
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 19    // KEYCODE_DPAD_UP
+:Sending Key (ACTION_UP): 19    // KEYCODE_DPAD_UP
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(811.0,407.0)
+:Sending Touch (ACTION_UP): 0:(819.7305,411.33868)
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,3.0)
+:Sending Key (ACTION_DOWN): 264    // KEYCODE_STEM_PRIMARY
+:Sending Key (ACTION_UP): 264    // KEYCODE_STEM_PRIMARY
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 19    // KEYCODE_DPAD_UP
+:Sending Key (ACTION_UP): 19    // KEYCODE_DPAD_UP
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,2.0)
+:Sending Key (ACTION_DOWN): 209    // KEYCODE_MUSIC
+:Sending Key (ACTION_UP): 209    // KEYCODE_MUSIC
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(20.0,757.0)
+:Sending Touch (ACTION_MOVE): 0:(7.826151,750.8538)
+:Sending Touch (ACTION_MOVE): 0:(0.0,749.0762)
+:Sending Touch (ACTION_MOVE): 0:(0.0,743.41125)
+:Sending Touch (ACTION_MOVE): 0:(0.0,735.9489)
+:Sending Touch (ACTION_MOVE): 0:(0.0,732.1619)
+:Sending Touch (ACTION_MOVE): 0:(0.0,725.17786)
+:Sending Touch (ACTION_MOVE): 0:(0.0,714.1994)
+:Sending Touch (ACTION_MOVE): 0:(0.0,711.5703)
+:Sending Touch (ACTION_MOVE): 0:(0.0,704.1624)
+:Sending Touch (ACTION_UP): 0:(0.0,700.7502)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(601.0,408.0)
+:Sending Touch (ACTION_MOVE): 0:(608.8622,405.94452)
+:Sending Touch (ACTION_MOVE): 0:(610.36664,403.49487)
+:Sending Touch (ACTION_MOVE): 0:(619.3541,392.1309)
+:Sending Touch (ACTION_MOVE): 0:(621.80145,385.73483)
+:Sending Touch (ACTION_UP): 0:(637.4913,372.04248)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(888.0,2064.0)
+:Sending Touch (ACTION_UP): 0:(897.18097,2074.1812)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 22    // KEYCODE_DPAD_RIGHT
+:Sending Key (ACTION_UP): 22    // KEYCODE_DPAD_RIGHT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 156    // KEYCODE_NUMPAD_SUBTRACT
+:Sending Key (ACTION_UP): 156    // KEYCODE_NUMPAD_SUBTRACT
+    // Rejecting start of Intent { act=android.search.action.GLOBAL_SEARCH cmp=com.baidu.searchbox/com.baidu.search.fastsearch.SearchActivity } in package com.baidu.searchbox
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 271    // KEYCODE_DPAD_DOWN_RIGHT
+:Sending Key (ACTION_UP): 271    // KEYCODE_DPAD_DOWN_RIGHT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 143    // KEYCODE_NUM_LOCK
+:Sending Key (ACTION_UP): 143    // KEYCODE_NUM_LOCK
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 22    // KEYCODE_DPAD_RIGHT
+:Sending Key (ACTION_UP): 22    // KEYCODE_DPAD_RIGHT
+Sleeping for 500 milliseconds
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.yishouapp.fumi/.activity.ApiChoseActivity;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.yishouapp.fumi/.activity.ApiChoseActivity } in package com.yishouapp.fumi
+    // activityResuming(com.yishouapp.fumi)
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,4.0)
+    //[calendar_time:2020-11-12 17:33:12.219  system_uptime:288319218]
+    // Sending event #200
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-2.0)
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(879.0,1586.0)
+:Sending Touch (ACTION_UP): 0:(880.2711,1609.2495)
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { cmp=com.yishouapp.fumi/.refactor.activity.DiscountActivity } in package com.yishouapp.fumi
+:Sending Key (ACTION_DOWN): 72    // KEYCODE_RIGHT_BRACKET
+:Sending Key (ACTION_UP): 72    // KEYCODE_RIGHT_BRACKET
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(9.0,703.0)
+:Sending Touch (ACTION_MOVE): 0:(29.430635,701.04114)
+:Sending Touch (ACTION_MOVE): 0:(35.329678,699.3199)
+:Sending Touch (ACTION_MOVE): 0:(43.077984,699.21765)
+:Sending Touch (ACTION_MOVE): 0:(54.624752,698.8296)
+:Sending Touch (ACTION_MOVE): 0:(67.484695,697.4364)
+:Sending Touch (ACTION_MOVE): 0:(76.87201,696.8282)
+:Sending Touch (ACTION_UP): 0:(91.293976,696.7705)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(665.0,1723.0)
+:Sending Touch (ACTION_UP): 0:(669.2876,1716.069)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(828.0,1144.0)
+:Sending Touch (ACTION_POINTER_DOWN 1): 0:(821.71716,1145.9902) 1:(869.0,1626.0)
+:Sending Touch (ACTION_POINTER_UP 1): 0:(814.59454,1147.9456) 1:(865.5842,1629.063)
+:Sending Touch (ACTION_UP): 0:(814.1057,1151.5756)
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { cmp=com.yishouapp.fumi/.activity.GoodsDetailActivity } in package com.yishouapp.fumi
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(818.0,2146.0)
+:Sending Touch (ACTION_MOVE): 0:(809.3763,2145.7146)
+:Sending Touch (ACTION_UP): 0:(804.8319,2143.7432)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 105    // KEYCODE_BUTTON_R2
+:Sending Key (ACTION_UP): 105    // KEYCODE_BUTTON_R2
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(534.0,1472.0)
+:Sending Touch (ACTION_UP): 0:(546.66675,1464.8472)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 25    // KEYCODE_VOLUME_DOWN
+:Sending Key (ACTION_UP): 25    // KEYCODE_VOLUME_DOWN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 22    // KEYCODE_DPAD_RIGHT
+:Sending Key (ACTION_UP): 22    // KEYCODE_DPAD_RIGHT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 19    // KEYCODE_DPAD_UP
+:Sending Key (ACTION_UP): 19    // KEYCODE_DPAD_UP
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(201.0,818.0)
+:Sending Touch (ACTION_UP): 0:(200.64413,815.7596)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(793.0,2334.0)
+:Sending Touch (ACTION_UP): 0:(804.1624,2334.678)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,3.0)
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(654.0,1375.0)
+:Sending Touch (ACTION_MOVE): 0:(655.18115,1375.3119)
+:Sending Touch (ACTION_MOVE): 0:(657.20807,1375.4454)
+:Sending Touch (ACTION_UP): 0:(659.5811,1375.561)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 19    // KEYCODE_DPAD_UP
+:Sending Key (ACTION_UP): 19    // KEYCODE_DPAD_UP
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+    //[calendar_time:2020-11-12 17:33:26.837  system_uptime:288333836]
+    // Sending event #300
+Sleeping for 500 milliseconds
+    //[calendar_time:2020-11-12 17:33:27.340  system_uptime:288334339]
+    // Sending event #300
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 22    // KEYCODE_DPAD_RIGHT
+:Sending Key (ACTION_UP): 22    // KEYCODE_DPAD_RIGHT
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(3.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,0.0)
+:Sending Flip keyboardOpen=false
+Got IOException performing flipjava.io.FileNotFoundException: /dev/input/event0: open failed: EACCES (Permission denied)
+    // Injection Failed
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,0.0)
+:Sending Key (ACTION_DOWN): 47    // KEYCODE_S
+:Sending Key (ACTION_UP): 47    // KEYCODE_S
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 22    // KEYCODE_DPAD_RIGHT
+:Sending Key (ACTION_UP): 22    // KEYCODE_DPAD_RIGHT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(16.0,613.0)
+:Sending Touch (ACTION_UP): 0:(19.385048,618.1962)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(904.0,1378.0)
+:Sending Touch (ACTION_POINTER_DOWN 1): 0:(904.63104,1386.2252) 1:(60.0,175.0)
+:Sending Touch (ACTION_MOVE): 0:(905.2756,1388.5138) 1:(55.763298,171.33705)
+:Sending Touch (ACTION_MOVE): 0:(905.432,1401.5496) 1:(51.05072,154.10313)
+:Sending Touch (ACTION_MOVE): 0:(906.3431,1409.2456) 1:(50.760532,148.2111)
+:Sending Touch (ACTION_MOVE): 0:(906.78955,1418.0543) 1:(44.2619,140.6931)
+:Sending Touch (ACTION_MOVE): 0:(906.97815,1419.4745) 1:(37.240993,123.13983)
+:Sending Touch (ACTION_MOVE): 0:(907.6998,1422.3617) 1:(19.818712,115.907684)
+:Sending Touch (ACTION_MOVE): 0:(908.58264,1425.6581) 1:(7.8277626,107.81397)
+:Sending Touch (ACTION_MOVE): 0:(909.2266,1433.407) 1:(0.0,105.56123)
+:Sending Touch (ACTION_POINTER_UP 1): 0:(910.3735,1438.6958) 1:(0.0,92.650185)
+:Sending Touch (ACTION_UP): 0:(910.8519,1440.2539)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(126.0,190.0)
+:Sending Touch (ACTION_MOVE): 0:(122.703606,206.26479)
+:Sending Touch (ACTION_UP): 0:(118.65074,212.71649)
+Sleeping for 500 milliseconds
+    // activityResuming(com.yishouapp.fumi)
+:Sending Key (ACTION_DOWN): 35    // KEYCODE_G
+:Sending Key (ACTION_UP): 35    // KEYCODE_G
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(354.0,797.0)
+:Sending Touch (ACTION_POINTER_DOWN 1): 0:(356.81033,811.6878) 1:(624.0,1467.0)
+:Sending Touch (ACTION_MOVE): 0:(363.0204,815.9985) 1:(636.82086,1467.4347)
+:Sending Touch (ACTION_MOVE): 0:(366.8692,830.8277) 1:(654.7161,1468.656)
+:Sending Touch (ACTION_MOVE): 0:(376.95245,846.9184) 1:(668.4997,1469.0754)
+:Sending Touch (ACTION_MOVE): 0:(384.78607,859.1868) 1:(670.33856,1469.8721)
+:Sending Touch (ACTION_MOVE): 0:(391.91446,859.43353) 1:(684.1097,1471.6396)
+:Sending Touch (ACTION_MOVE): 0:(411.00607,870.6111) 1:(691.58026,1473.7793)
+:Sending Touch (ACTION_POINTER_UP 1): 0:(422.67072,877.79706) 1:(693.29004,1474.2621)
+:Sending Touch (ACTION_UP): 0:(428.2905,879.2055)
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { cmp=com.yishouapp.fumi/.activity.GoodsDetailActivity } in package com.yishouapp.fumi
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(1079.0,1014.0)
+:Sending Touch (ACTION_UP): 0:(1080.0,994.1024)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(481.0,981.0)
+:Sending Touch (ACTION_UP): 0:(489.90274,973.52185)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(15.0,869.0)
+:Sending Touch (ACTION_UP): 0:(12.246098,852.5906)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(1034.0,2210.0)
+:Sending Touch (ACTION_MOVE): 0:(1018.9088,2214.163)
+:Sending Touch (ACTION_MOVE): 0:(1010.70166,2216.2563)
+:Sending Touch (ACTION_MOVE): 0:(1003.71265,2217.8506)
+:Sending Touch (ACTION_MOVE): 0:(989.3989,2226.5696)
+:Sending Touch (ACTION_MOVE): 0:(987.65485,2234.2017)
+:Sending Touch (ACTION_MOVE): 0:(974.2525,2245.3088)
+:Sending Touch (ACTION_UP): 0:(962.5202,2252.5063)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 19    // KEYCODE_DPAD_UP
+:Sending Key (ACTION_UP): 19    // KEYCODE_DPAD_UP
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(802.0,2334.0)
+:Sending Touch (ACTION_MOVE): 0:(795.16144,2333.503)
+    //[calendar_time:2020-11-12 17:33:39.051  system_uptime:288346050]
+    // Sending event #400
+:Sending Touch (ACTION_MOVE): 0:(786.8124,2330.2024)
+:Sending Touch (ACTION_MOVE): 0:(777.82605,2311.1746)
+:Sending Touch (ACTION_MOVE): 0:(771.3557,2302.901)
+:Sending Touch (ACTION_MOVE): 0:(768.2682,2297.7683)
+:Sending Touch (ACTION_MOVE): 0:(759.3806,2295.8188)
+:Sending Touch (ACTION_MOVE): 0:(757.66626,2291.4177)
+:Sending Touch (ACTION_MOVE): 0:(750.58356,2279.9688)
+:Sending Touch (ACTION_MOVE): 0:(750.47217,2266.384)
+:Sending Touch (ACTION_UP): 0:(747.478,2250.4478)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 16    // KEYCODE_9
+:Sending Key (ACTION_UP): 16    // KEYCODE_9
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,3.0)
+:Sending Key (ACTION_DOWN): 33    // KEYCODE_E
+:Sending Key (ACTION_UP): 33    // KEYCODE_E
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 4    // KEYCODE_BACK
+:Sending Key (ACTION_UP): 4    // KEYCODE_BACK
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(821.0,36.0)
+:Sending Touch (ACTION_UP): 0:(818.5304,36.519466)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(256.0,2312.0)
+:Sending Touch (ACTION_MOVE): 0:(258.70987,2315.9846)
+:Sending Touch (ACTION_MOVE): 0:(266.00555,2318.9353)
+:Sending Touch (ACTION_MOVE): 0:(272.338,2325.1475)
+:Sending Touch (ACTION_MOVE): 0:(280.4396,2328.441)
+:Sending Touch (ACTION_MOVE): 0:(289.82037,2331.107)
+:Sending Touch (ACTION_MOVE): 0:(296.9519,2336.0469)
+:Sending Touch (ACTION_MOVE): 0:(297.86877,2340.0)
+:Sending Touch (ACTION_MOVE): 0:(304.46698,2340.0)
+:Sending Touch (ACTION_UP): 0:(304.72162,2340.0)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 54    // KEYCODE_Z
+:Sending Key (ACTION_UP): 54    // KEYCODE_Z
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(590.0,260.0)
+:Sending Touch (ACTION_POINTER_DOWN 1): 0:(581.4401,272.735) 1:(337.0,1179.0)
+:Sending Touch (ACTION_MOVE): 0:(578.5171,275.86368) 1:(319.9842,1197.1309)
+:Sending Touch (ACTION_MOVE): 0:(569.8566,288.18118) 1:(312.743,1215.8885)
+:Sending Touch (ACTION_POINTER_UP 1): 0:(561.88043,296.68784) 1:(312.3466,1220.3274)
+:Sending Touch (ACTION_UP): 0:(553.8689,305.3142)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(853.0,1681.0)
+:Sending Touch (ACTION_MOVE): 0:(839.53516,1667.1771)
+:Sending Touch (ACTION_MOVE): 0:(819.8883,1652.8765)
+:Sending Touch (ACTION_MOVE): 0:(817.37866,1637.8928)
+:Sending Touch (ACTION_MOVE): 0:(812.6005,1629.869)
+:Sending Touch (ACTION_MOVE): 0:(798.6701,1617.9886)
+:Sending Touch (ACTION_MOVE): 0:(787.023,1601.985)
+:Sending Touch (ACTION_UP): 0:(780.918,1588.5421)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 243    // KEYCODE_TV_INPUT_HDMI_1
+:Sending Key (ACTION_UP): 243    // KEYCODE_TV_INPUT_HDMI_1
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 3    // KEYCODE_HOME
+:Sending Key (ACTION_UP): 3    // KEYCODE_HOME
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.bbk.launcher2/.Launcher } in package com.bbk.launcher2
+    // activityResuming(com.bbk.launcher2)
+    // Rejecting resume of package com.bbk.launcher2
+:Sending Touch (ACTION_DOWN): 0:(73.0,943.0)
+:Sending Touch (ACTION_UP): 0:(73.20116,948.9569)
+Sleeping for 500 milliseconds
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.bbkmusic/.WidgetToTrackActivity } in package com.android.bbkmusic
+:Sending Touch (ACTION_DOWN): 0:(513.0,2125.0)
+:Sending Touch (ACTION_POINTER_DOWN 1): 0:(518.67957,2121.2268) 1:(887.0,1176.0)
+:Sending Touch (ACTION_MOVE): 0:(519.38007,2115.5862) 1:(886.1102,1183.2694)
+:Sending Touch (ACTION_POINTER_UP 1): 0:(519.5822,2114.7358) 1:(883.71906,1204.2788)
+:Sending Touch (ACTION_UP): 0:(522.7325,2109.4827)
+Sleeping for 500 milliseconds
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.bbk.theme/.Theme } in package com.bbk.theme
+:Sending Touch (ACTION_DOWN): 0:(383.0,1326.0)
+:Sending Touch (ACTION_MOVE): 0:(388.85144,1326.0828)
+:Sending Touch (ACTION_MOVE): 0:(399.09726,1327.6108)
+:Sending Touch (ACTION_MOVE): 0:(408.90305,1330.8542)
+:Sending Touch (ACTION_MOVE): 0:(417.82394,1334.4255)
+:Sending Touch (ACTION_MOVE): 0:(424.5328,1337.9071)
+:Sending Touch (ACTION_UP): 0:(433.4502,1340.9575)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 22    // KEYCODE_DPAD_RIGHT
+:Sending Key (ACTION_UP): 22    // KEYCODE_DPAD_RIGHT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 132    // KEYCODE_F2
+:Sending Key (ACTION_UP): 132    // KEYCODE_F2
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-4.0)
+Events injected: 500
+:Sending rotation degree=0, persist=false
+:Dropped: keys=0 pointers=0 trackballs=0 flips=1 rotations=0
+## Network stats: elapsed time=61675ms (0ms mobile, 0ms wifi, 61675ms not connected)
+// Monkey finished

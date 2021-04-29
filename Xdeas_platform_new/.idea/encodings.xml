@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Chinese.md" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/common/Convert.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/FrameTypes.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/TCPManager.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/excel_unit.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/sql.py" charset="UTF-8" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>
