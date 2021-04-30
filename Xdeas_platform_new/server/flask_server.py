@@ -117,6 +117,7 @@ def get_boxes():
             res['env'] = i[8]
             res['record_time'] = i[9]
             res_list['result'].append(res)
+
         return res_list
 
 
