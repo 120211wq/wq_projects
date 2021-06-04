@@ -5,7 +5,8 @@ import time
 from threading import Event
 
 from common.Convert import getLoginDataFrame, keepHeartBreakFrame, getPLCDataFrame, getPLCStatueFrame, \
-    getElectorDataFrame, getPLCConfigFrame, getHotPLCConfigFrame, getHotPLCDataFrame, getHotPLCStatueFrame
+    getElectorDataFrame, getPLCConfigFrame, getHotPLCConfigFrame, getHotPLCDataFrame, getHotPLCStatueFrame, \
+    getCustomConfigFrame, getCustomProtocolFrame
 from common.TCPManager import TcpManager
 from common.sql import SQLManager
 
@@ -36,7 +37,7 @@ def stop_thread(ident):
         return False
 
 
-def run(event, box_id, ip_addres, ip_port, box_type):
+def run(event, box_id, ip_addres, ip_port, box_type,protocol_num):
     tcp_client = TcpManager(ip_addres, ip_port)
     try:
         tcp_client.tcp_connect()
@@ -48,6 +49,8 @@ def run(event, box_id, ip_addres, ip_port, box_type):
         tcp_client.tcp_upload(getPLCConfigFrame(str(box_id)))
     elif box_type == 2:
         tcp_client.tcp_upload(getHotPLCConfigFrame(str(box_id)))
+    elif box_type == 3:
+        tcp_client.tcp_upload(getCustomConfigFrame(str(box_id), protocol_num))
     plc_data = keepHeartBreakFrame(str(box_id))
     running_HeartBreak_start = time.time()
     tcp_client.tcp_upload(plc_data)
@@ -60,6 +63,9 @@ def run(event, box_id, ip_addres, ip_port, box_type):
             print(vlist[elist.index(event)])
             if vlist[elist.index(event)]['flag'] == 2:
                 upload_continue(box_id, box_type, vlist[elist.index(event)]['type'], tcp_client, event)
+            if vlist[elist.index(event)]['flag'] == 3:
+                plc_data = getCustomProtocolFrame(str(box_id), vlist[elist.index(event)]['value'], vlist[elist.index(event)]['custom_type'])
+                tcp_client.tcp_upload(plc_data)
             if vlist[elist.index(event)]['type'] == 'plc_data':
                 if box_type == 1 and vlist[elist.index(event)]['flag'] == 1:
                     plc_data = getPLCDataFrame(str(box_id), vlist[elist.index(event)]['value'])
@@ -86,10 +92,10 @@ def run(event, box_id, ip_addres, ip_port, box_type):
             vlist[elist.index(event)] = None
 
 
-def creat_box(box_id, ip_addres, ip_port, box_type):
+def creat_box(box_id, ip_addres, ip_port, box_type,protocol_num):
     try:
         event = Event()
-        t = threading.Thread(target=run, args=(event, box_id, ip_addres, ip_port, box_type,))
+        t = threading.Thread(target=run, args=(event, box_id, ip_addres, ip_port, box_type,protocol_num,))
         # t.setDaemon(True)
         t.start()
         a = t.ident
@@ -134,11 +140,12 @@ def run_continue(box_type, type, tcp_client, box_id, event):
         time.sleep(20)
 
 
-def put_vlist(ident, type, value, flag):
+def put_vlist(ident, type, value, flag,custom_type):
     dicts = {}
     dicts['type'] = type
     dicts['value'] = value
     dicts['flag'] = flag
+    dicts['custom_type'] = custom_type
     if ident in tlist:
         vlist[tlist.index(ident)] = dicts
         elist[tlist.index(ident)].set()

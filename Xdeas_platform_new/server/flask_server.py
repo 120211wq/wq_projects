@@ -10,7 +10,7 @@ from common import excel_unit as EX
 from flask import request
 from flask_httpauth import HTTPBasicAuth
 from common.TCPManager import GetTcpServerAddr
-from common.config import read_env
+from common.config import read_env, ProtocolInit
 from common.sql import SQLManager
 from common.threads import creat_box, stop_thread, put_vlist
 from server.user_token import create_token, verify_auth_token
@@ -57,18 +57,19 @@ def get_env():
 def create_box():
     if request.method == 'POST':
         if not verify_auth_token(request.headers['token']):
-            return {'state': 'token验证失败'},502
+            return {'state': 'token验证失败'}, 502
         data = json.loads(request.get_data())
         box_num = data.get('box_num')
-        box_type =data.get('box_type')
+        box_type = data.get('box_type')
+        protocol_num = data.get('protocol_num')
         env = data.get('env')
         if len(box_num) != 12:
-            return {'state': "盒子编号长度必须为12位，请重新输入"},400
+            return {'state': "盒子编号长度必须为12位，请重新输入"}, 400
         c = SQLManager()
         sql = "select box_number from running_box where box_number = " + box_num
         value = c.sel_box(sql)
         if len(value) > 0:
-            return {'state': '盒子正在模拟，请换个盒子'},400
+            return {'state': '盒子正在模拟，请换个盒子'}, 400
         reg_ip = read_env(env, 'api')
         obj = GetTcpServerAddr()
         sql = "select box_id from register where box_id = " + box_num
@@ -79,26 +80,43 @@ def create_box():
             if tcp_server:
                 c.register_sql(box_num, tcp_server[0], str(tcp_server[1]))
             else:
-                return {'state': '获取tcp服务异常'},400
+                return {'state': '获取tcp服务异常'}, 400
         elif len(value) > 0 and res != '注册接口异常':
             tcp_server = obj.get_tcp_server(reg_ip, box_num)
             if not tcp_server:
-                return {'state': '获取tcp服务异常'},400
+                return {'state': '获取tcp服务异常'}, 400
         else:
-            return {'state': res},400
-        ident = creat_box(box_num, tcp_server[0], tcp_server[1],int(box_type))
-        sql = "INSERT INTO running_box (box_number,box_count,runnning_type,box_type,thread_ident,plc_con_ident,ele_con_ident,env,record_time) VALUES (" + str(
-            box_num) + ",1,1,"+str(box_type)+',' + str(ident) + ",null,null,'"+env+"',DATETIME('now', 'localtime'))"
+            return {'state': res}, 400
+        ident = creat_box(box_num, tcp_server[0], tcp_server[1], int(box_type), protocol_num)
+        sql = "INSERT INTO running_box (box_number,box_count,protocol_num,box_type,thread_ident,plc_con_ident,ele_con_ident,env,record_time) VALUES (" + str(
+            box_num) + ",1,1," + str(box_type) + ',' + str(
+            ident) + ",null,null,'" + env + "',DATETIME('now', 'localtime'))"
         c.insert_spl(
             sql)
-        return {'state': '盒子模拟成功'},200
+        return {'state': '盒子模拟成功'}, 200
+
+
+@server.route('/getProtocolDetail', methods=['post'])
+def get_protocol_detail():
+    if request.method == 'POST':
+        data = json.loads(request.get_data())
+        protocol_num = data.get('protocol_num')
+        c = SQLManager()
+        sql = "select * from protocol where code = " + str(protocol_num)
+        value = c.sel_box(sql)
+        print(value)
+        if len(value) == 0:
+            return {'state': '无此协议'}, 400
+        else:
+            print(type(json.loads(value[0][3])))
+            return json.loads(value[0][3]), 200
 
 
 @server.route('/getBoxes', methods=['post'])
 def get_boxes():
     if request.method == 'POST':
         if not verify_auth_token(request.headers['token']):
-            return {'state': 'token验证失败'},502
+            return {'state': 'token验证失败'}, 502
         data = json.loads(request.get_data())
         types = data.get('type')
         c = SQLManager()
@@ -109,7 +127,7 @@ def get_boxes():
             res = {}
             res['box_number'] = i[1]
             res['box_count'] = i[2]
-            res['runnning_type'] = i[3]
+            res['protocol_num'] = i[3]
             res['box_type'] = i[4]
             res['thread_ident'] = i[5]
             res['plc_con_ident'] = i[6]
@@ -124,7 +142,7 @@ def get_boxes():
 def stop_box():
     if request.method == 'POST':
         if not verify_auth_token(request.headers['token']):
-            return {'state': 'token验证失败'},502
+            return {'state': 'token验证失败'}, 502
         data = json.loads(request.get_data())
         ident = data.get('ident')
         c = SQLManager()
@@ -137,15 +155,16 @@ def stop_box():
         if res:
             sql = "delete from running_box where thread_ident =" + ident
             c.insert_spl(sql)
-            return {'state': '线程停止成功'},200
+            return {'state': '线程停止成功'}, 200
         else:
-            return {'state': '线程停止失败'},400
+            return {'state': '线程停止失败'}, 400
+
 
 @server.route('/stopContinue', methods=['post'])
 def stop_continue():
     if request.method == 'POST':
         if not verify_auth_token(request.headers['token']):
-            return {'state': 'token验证失败'},502
+            return {'state': 'token验证失败'}, 502
         data = json.loads(request.get_data())
         box_id = data.get('box_id')
         stop_ident = data.get('stop_ident')
@@ -161,9 +180,9 @@ def stop_continue():
             print(sql)
             c.insert_spl(sql)
         if not res:
-            return {'state': '线程停止失败'},400
+            return {'state': '线程停止失败'}, 400
         else:
-            return {'state': '线程停止成功'},200
+            return {'state': '线程停止成功'}, 200
 
 
 @server.route('/uploadData', methods=['post'])
@@ -171,15 +190,16 @@ def upload_Data():
     res = ''
     if request.method == 'POST':
         if not verify_auth_token(request.headers['token']):
-            return {'state': 'token验证失败'},502
+            return {'state': 'token验证失败'}, 502
         data = json.loads(request.get_data())
         ident = data.get('ident')
         data_type = data.get('type')
         value = data.get('value')
         flag = data.get('flag')
+        custom_type = data.get('custom_type')
         if len(value) == 0:
-            return {'state': "上报数据不能为空"},400
-        put_vlist(ident, data_type, value,flag)
+            return {'state': "上报数据不能为空"}, 400
+        put_vlist(ident, data_type, value, flag,custom_type)
         time.sleep(1)
         if flag == 2:
             c = SQLManager()
@@ -189,7 +209,7 @@ def upload_Data():
             if data_type == 'ele_data':
                 sql = "select ele_con_ident from running_box where thread_ident = " + str(ident)
                 res = c.sel_box(sql)
-        return {'state': '数据发送成功',"ident":res},200
+        return {'state': '数据发送成功', "ident": res}, 200
 
 
 @server.route('/login', methods=['post'])
@@ -199,20 +219,31 @@ def login():
         username = data.get('username')
         password = data.get('password')
         c = SQLManager()
-        sql = "select * from account where username = '"+str(username)+"'"
+        sql = "select * from account where username = '" + str(username) + "'"
         res = c.sel_box(sql)
-        if len(res)>0:
+        if len(res) > 0:
             if res[0][2] == password:
-                return {"state":'登录成功','token':create_token(username)},200
+                return {"state": '登录成功', 'token': create_token(username)}, 200
             else:
-                return {"state":"密码错误"},400
+                return {"state": "密码错误"}, 400
         else:
-            return {"state": "无此账号"},400
+            return {"state": "无此账号"}, 400
+
+
+@server.route('/init', methods=['post'])
+def init():
+    if request.method == 'POST':
+        data = json.loads(request.get_data())
+        session = data.get('session')
+        api = data.get('api')
+        c = SQLManager()
+        sql = "delete from running_box"
+        sql1 = "delete from protocol"
+        c.insert_spl(sql1)
+        c.insert_spl(sql)
+        ProtocolInit().get_all_protocol(session, api)
+    return {'state': '初始化成功'}, 200
 
 
 if __name__ == '__main__':
-    c = SQLManager()
-    sql = "delete from running_box"
-    c.insert_spl(
-        sql)
     server.run(port=5200, debug=True, host='0.0.0.0', threaded=True)

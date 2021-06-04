@@ -3,7 +3,7 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, Signatur
 SECRET_KEY = 'SECRET_KEY'
 
 def create_token(user):
-    s = Serializer(SECRET_KEY)
+    s = Serializer(SECRET_KEY,expires_in=3600000)
     return s.dumps({ 'id': user }).decode('ascii')
 
 def verify_auth_token(token):

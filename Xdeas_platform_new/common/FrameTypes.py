@@ -12,6 +12,8 @@ class FrameType:
     NOTICE_FRAME = 'dc20'
     # 校验位+帧尾
     TAIL_FRAME = '0000cd'
+    # 配置帧
+    CONFIG_FRAME = 'dc21'
 
 
 class CodeType:
@@ -59,3 +61,4 @@ class CommonFrame:
     ELECTOR_EXCEPTION_COMMON = '0005010200'
     # 心跳 --帧长+协议版本+模式+预留
     HEART_BREAK_COMMON = '0000010200'
+
