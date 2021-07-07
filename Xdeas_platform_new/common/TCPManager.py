@@ -1,3 +1,4 @@
+import json
 from socket import *
 
 import requests
@@ -67,6 +68,17 @@ class GetTcpServerAddr():
             return api[0], int(api[1])
         else:
             print(res)
+            return False
+
+    def get_xdeas_platform_session(self,api):
+        url = 'http://' + api + '/xdeas_api/xdeas-user-admin/account/terminal/loginByAccount'
+        headers = {"Content-Type": "application/json;charset=UTF-8"}
+        body = {"mobile":"13788888888","password":"123456","account":"13788888888"}
+        r = requests.post(url=url, json=body,headers=headers)
+        res = eval(r.text)
+        if r.status_code == 200:
+            return res['data']['sessionId']
+        else:
             return False
 
 if __name__ == '__main__':
