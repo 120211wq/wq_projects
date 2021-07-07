@@ -89,7 +89,7 @@ def create_box():
             return {'state': res}, 400
         ident = creat_box(box_num, tcp_server[0], tcp_server[1], int(box_type), protocol_num)
         sql = "INSERT INTO running_box (box_number,box_count,protocol_num,box_type,thread_ident,plc_con_ident,ele_con_ident,env,record_time) VALUES (" + str(
-            box_num) + ",1,"+protocol_num+"," + str(box_type) + ',' + str(
+            box_num) + ",1,"+str(protocol_num)+"," + str(box_type) + ',' + str(
             ident) + ",null,null,'" + env + "',DATETIME('now', 'localtime'))"
         c.insert_spl(
             sql)
