@@ -75,7 +75,7 @@ class ProtocolInit():
                 elif i['dataType'] == 'STATUS_DATA':
                     if 'dataPosition' not in i.keys():
                         if i['protocolItemType'] == '':
-                            p['01']['暂无类型' + str(res['data']['protocolItemList'].index(i))] = i[
+                            p['02']['暂无类型' + str(res['data']['protocolItemList'].index(i))] = i[
                                 'protocolItemAddressList']
                         else:
                             p['02'][p_list[i['protocolItemType']]] = i['protocolItemAddressList']
