@@ -31,6 +31,7 @@
       <template v-slot="scope">
         <span v-if="scope.row.box_type === 1">蒸汽锅炉</span>
         <span v-if="scope.row.box_type === 2">热水锅炉</span>
+        <span v-if="scope.row.box_type === 3">自定义协议</span>
       </template>
     </el-table-column>
     <el-table-column
@@ -42,12 +43,9 @@
         label="进程号">
     </el-table-column>
     <el-table-column
-        prop="runnning_type"
-        label="当前模拟状态">
-      <template v-slot="scope">
-        <span v-if="scope.row.runnning_type === 1">正常</span>
-        <span v-if="scope.row.runnning_type === 2">停止</span>
-      </template>
+        prop="protocol_num"
+        label="协议code"
+        width="180">
     </el-table-column>
     <el-table-column
         fixed="right"
@@ -65,7 +63,6 @@
 
 <script>
 /* eslint-disable */
-import axios from "axios";
 import {ElMessage} from 'element-plus'
 import {get_simulationlist, simulation_stopBox} from "../api";
 
@@ -96,7 +93,8 @@ export default {
             box_type: row.box_type
           }
         })
-      } else {
+      }
+      else if(row.box_type === 2) {
         window.console.log(row.box_type)
         window.console.log(this.$router)
         this.$router.push({name: 'hot_water_simulation',
@@ -106,6 +104,18 @@ export default {
             ele_con_ident: row.ele_con_ident,
             plc_con_ident: row.plc_con_ident,
             box_type: row.box_type
+          }
+        })
+      }
+      else{
+        this.$router.push({name: 'custom',
+          params: {
+            box_number: row.box_number,
+            thread_ident: row.thread_ident,
+            ele_con_ident: row.ele_con_ident,
+            plc_con_ident: row.plc_con_ident,
+            box_type: row.box_type,
+            protocol_num :row.protocol_num
           }
         })
       }
@@ -120,7 +130,7 @@ export default {
               console.log(res)
               ElMessage.success('停止成功')
             }
-            
+
           });
       setTimeout(that.get_tableData, 1000);
     },
@@ -133,7 +143,7 @@ export default {
               this.loading = false;
               console.log(res);
              }
-            
+
           });
     }
   },

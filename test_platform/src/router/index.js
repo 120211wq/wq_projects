@@ -6,6 +6,8 @@ const creat_box = () => import("../views/creat_box.vue")
 const box_list = () => import("../components/box_list.vue")
 const steam_simulation = () => import("../components/steam_simulation.vue")
 const hot_water_simulation = () => import("../components/hot_water_simulation.vue")
+const custom = () => import("../components/custom.vue")
+
 
 
 
@@ -45,6 +47,11 @@ const router = createRouter({
                     name:'hot_water_simulation',
                     path: "/home_page/box_list",
                     component: hot_water_simulation
+                },
+                {
+                    name:'custom',
+                    path: "/home_page/box_list",
+                    component: custom
                 }
 
             ]
