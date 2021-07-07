@@ -89,7 +89,7 @@ def create_box():
             return {'state': res}, 400
         ident = creat_box(box_num, tcp_server[0], tcp_server[1], int(box_type), protocol_num)
         sql = "INSERT INTO running_box (box_number,box_count,protocol_num,box_type,thread_ident,plc_con_ident,ele_con_ident,env,record_time) VALUES (" + str(
-            box_num) + ",1,1," + str(box_type) + ',' + str(
+            box_num) + ",1,"+protocol_num+"," + str(box_type) + ',' + str(
             ident) + ",null,null,'" + env + "',DATETIME('now', 'localtime'))"
         c.insert_spl(
             sql)
@@ -104,11 +104,9 @@ def get_protocol_detail():
         c = SQLManager()
         sql = "select * from protocol where code = " + str(protocol_num)
         value = c.sel_box(sql)
-        print(value)
         if len(value) == 0:
             return {'state': '无此协议'}, 400
         else:
-            print(type(json.loads(value[0][3])))
             return json.loads(value[0][3]), 200
 
 
@@ -120,7 +118,7 @@ def get_boxes():
         data = json.loads(request.get_data())
         types = data.get('type')
         c = SQLManager()
-        sql = "select * from running_box where runnning_type in" + types + "order by record_time desc"
+        sql = "select * from running_box where box_type in" + types + "order by record_time desc"
         value = c.sel_box(sql)
         res_list = {'count': len(value), 'result': [], 'state': 200}
         for i in value:
@@ -234,8 +232,10 @@ def login():
 def init():
     if request.method == 'POST':
         data = json.loads(request.get_data())
-        session = data.get('session')
-        api = data.get('api')
+        env = data.get('env')
+        api = read_env(env, 'api')
+        obj = GetTcpServerAddr()
+        session = obj.get_xdeas_platform_session(api)
         c = SQLManager()
         sql = "delete from running_box"
         sql1 = "delete from protocol"
@@ -243,6 +243,22 @@ def init():
         c.insert_spl(sql)
         ProtocolInit().get_all_protocol(session, api)
     return {'state': '初始化成功'}, 200
+
+@server.route('/getProtocolList', methods=['GET'])
+def protocol_list():
+    if request.method == 'GET':
+        if not verify_auth_token(request.headers['token']):
+            return {'state': 'token验证失败'}, 502
+        c = SQLManager()
+        sql = "select * from protocol "
+        value = c.sel_box(sql)
+        res_list = {'count': len(value), 'result': [], 'state': 200}
+        for i in value:
+            res = {}
+            res['name'] = i[1]
+            res['code'] = i[2]
+            res_list['result'].append(res)
+        return res_list
 
 
 if __name__ == '__main__':
