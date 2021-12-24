@@ -360,4 +360,5 @@ def return_resource():
 
 
 if __name__ == '__main__':
+    CORS(server, supports_credentials=True)
     server.run(port=5200, debug=True, host='0.0.0.0', threaded=True)
