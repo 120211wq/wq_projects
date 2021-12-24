@@ -355,6 +355,7 @@ def return_resource():
             sql)
         sql = "update test_resource set status = 0 where id ='" + str(pid) + "'"
         c.insert_spl(sql)
+
         return {'state': '归还成功'}, 200
 
 
