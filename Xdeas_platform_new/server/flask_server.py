@@ -19,6 +19,9 @@ server = flask.Flask(__name__)
 excel_path = '../report.xlsx'
 CORS(server, supports_credentials=True)
 auth = HTTPBasicAuth()
+server.config['JSON_SORT_KEYS'] = False
+
+null = None
 
 
 @server.route('/getAnalysis', methods=['get'])
@@ -56,8 +59,8 @@ def get_env():
 @server.route('/createBox', methods=['post'])
 def create_box():
     if request.method == 'POST':
-        if not verify_auth_token(request.headers['token']):
-            return {'state': 'token验证失败'}, 502
+        # if not verify_auth_token(request.headers['token']):
+        #     return {'state': 'token验证失败'}, 502
         data = json.loads(request.get_data())
         box_num = data.get('box_num')
         box_type = data.get('box_type')
@@ -89,7 +92,12 @@ def create_box():
             return {'state': res}, 400
         ident = creat_box(box_num, tcp_server[0], tcp_server[1], int(box_type), protocol_num)
         sql = "INSERT INTO running_box (box_number,box_count,protocol_num,box_type,thread_ident,plc_con_ident,ele_con_ident,env,record_time) VALUES (" + str(
-            box_num) + ",1,"+str(protocol_num)+"," + str(box_type) + ',' + str(
+            box_num) + ",1," + str(protocol_num) + "," + str(box_type) + ',' + str(
+            ident) + ",null,null,'" + env + "',DATETIME('now', 'localtime'))"
+        c.insert_spl(
+            sql)
+        sql = "INSERT INTO running_box (box_number,box_count,protocol_num,box_type,thread_ident,plc_con_ident,ele_con_ident,env,record_time) VALUES (" + str(
+            box_num) + ",1," + str(protocol_num) + "," + str(box_type) + ',' + str(
             ident) + ",null,null,'" + env + "',DATETIME('now', 'localtime'))"
         c.insert_spl(
             sql)
@@ -107,14 +115,14 @@ def get_protocol_detail():
         if len(value) == 0:
             return {'state': '无此协议'}, 400
         else:
-            return json.loads(value[0][3]), 200
+            return eval(value[0][3]), 200
 
 
 @server.route('/getBoxes', methods=['post'])
 def get_boxes():
     if request.method == 'POST':
-        if not verify_auth_token(request.headers['token']):
-            return {'state': 'token验证失败'}, 502
+        # if not verify_auth_token(request.headers['token']):
+        #     return {'state': 'token验证失败'}, 502
         data = json.loads(request.get_data())
         types = data.get('type')
         c = SQLManager()
@@ -139,8 +147,8 @@ def get_boxes():
 @server.route('/stopBox', methods=['post'])
 def stop_box():
     if request.method == 'POST':
-        if not verify_auth_token(request.headers['token']):
-            return {'state': 'token验证失败'}, 502
+        # if not verify_auth_token(request.headers['token']):
+        #     return {'state': 'token验证失败'}, 502
         data = json.loads(request.get_data())
         ident = data.get('ident')
         c = SQLManager()
@@ -161,8 +169,8 @@ def stop_box():
 @server.route('/stopContinue', methods=['post'])
 def stop_continue():
     if request.method == 'POST':
-        if not verify_auth_token(request.headers['token']):
-            return {'state': 'token验证失败'}, 502
+        # if not verify_auth_token(request.headers['token']):
+        #     return {'state': 'token验证失败'}, 502
         data = json.loads(request.get_data())
         box_id = data.get('box_id')
         stop_ident = data.get('stop_ident')
@@ -187,8 +195,8 @@ def stop_continue():
 def upload_Data():
     res = ''
     if request.method == 'POST':
-        if not verify_auth_token(request.headers['token']):
-            return {'state': 'token验证失败'}, 502
+        # if not verify_auth_token(request.headers['token']):
+        #     return {'state': 'token验证失败'}, 502
         data = json.loads(request.get_data())
         ident = data.get('ident')
         data_type = data.get('type')
@@ -197,7 +205,7 @@ def upload_Data():
         custom_type = data.get('custom_type')
         if len(value) == 0:
             return {'state': "上报数据不能为空"}, 400
-        put_vlist(ident, data_type, value, flag,custom_type)
+        put_vlist(ident, data_type, value, flag, custom_type)
         time.sleep(1)
         if flag == 2:
             c = SQLManager()
@@ -244,11 +252,12 @@ def init():
         ProtocolInit().get_all_protocol(session, api)
     return {'state': '初始化成功'}, 200
 
+
 @server.route('/getProtocolList', methods=['GET'])
 def protocol_list():
     if request.method == 'GET':
-        if not verify_auth_token(request.headers['token']):
-            return {'state': 'token验证失败'}, 502
+        # if not verify_auth_token(request.headers['token']):
+        #     return {'state': 'token验证失败'}, 502
         c = SQLManager()
         sql = "select * from protocol "
         value = c.sel_box(sql)
@@ -259,6 +268,94 @@ def protocol_list():
             res['code'] = i[2]
             res_list['result'].append(res)
         return res_list
+
+
+@server.route('/getTestResource', methods=['post'])
+def get_test_resource():
+    if request.method == 'POST':
+        c = SQLManager()
+        data = json.loads(request.get_data())
+        pid = data.get('p_id')
+        if pid == '':
+            sql = "select * from test_resource "
+        else:
+            sql = "select * from test_resource where id = '" + pid + "'"
+        value = c.sel_box(sql)
+        res_list = {'count': len(value), 'result': [], 'state': 200}
+        for i in value:
+            res = {}
+            res['id'] = i[0]
+            res['name'] = i[1]
+            if i[2] == 1:
+                res['code'] = '手机'
+            else:
+                res['code'] = '未知'
+            if i[3] == 0:
+                res['status'] = '可用'
+            else:
+                res['status'] = '已借出'
+            res_list['result'].append(res)
+        return res_list
+
+
+@server.route('/getResourceRecord', methods=['post'])
+def get_resource_record():
+    if request.method == 'POST':
+        data = json.loads(request.get_data())
+        pid = data.get('p_id')
+        c = SQLManager()
+        sql = "select * from test_resource_record where p_id = '" + pid + "' order by borrow_data desc"
+        value = c.sel_box(sql)
+        res_list = {'count': len(value), 'result': [], 'state': 200}
+        for i in value:
+            res = {}
+            res['pid'] = i[1]
+            res['borrower'] = i[2]
+            res['borrow_data'] = i[3]
+            res['revert_date'] = i[4]
+            res_list['result'].append(res)
+        return res_list
+
+
+@server.route('/addResourceRecord', methods=['post'])
+def add_resource_record():
+    if request.method == 'POST':
+        data = json.loads(request.get_data())
+        pid = data.get('p_id')
+        borrower = data.get('borrower')
+        c = SQLManager()
+        sql = "select * from test_resource_record where p_id = '" + pid + "' order by borrow_data desc limit 1"
+        value = c.sel_box(sql)
+        print(value)
+        if len(value)>0:
+            if not value[0][4]:
+                return {'state': '仍未归还，不可借出'}, 500
+        sql = "INSERT INTO test_resource_record (p_id,borrower,borrow_data) VALUES ('" + str(
+            pid) + "','" + str(borrower) + "',DATETIME('now', 'localtime'))"
+        c.insert_spl(
+            sql)
+        sql = "update test_resource set status = 1 where id ='" + str(pid)+"'"
+        c.insert_spl(sql)
+        return {'state': '记录添加成功'}, 200
+
+@server.route('/returnResource', methods=['post'])
+def return_resource():
+    if request.method == 'POST':
+        data = json.loads(request.get_data())
+        pid = data.get('p_id')
+        c = SQLManager()
+        sql = "select * from test_resource_record where p_id = '" + pid + "' order by borrow_data desc limit 1"
+        value = c.sel_box(sql)
+        print(value)
+        if len(value) > 0:
+            if value[0][4]:
+                return {'state': '已归还，无需再还'}, 500
+        sql = "update test_resource_record set revert_date = DATETIME('now', 'localtime') where id = "+str(value[0][0])
+        c.insert_spl(
+            sql)
+        sql = "update test_resource set status = 0 where id ='" + str(pid) + "'"
+        c.insert_spl(sql)
+        return {'state': '归还成功'}, 200
 
 
 if __name__ == '__main__':
