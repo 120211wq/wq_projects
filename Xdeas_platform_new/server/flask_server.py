@@ -323,13 +323,14 @@ def add_resource_record():
         data = json.loads(request.get_data())
         pid = data.get('p_id')
         borrower = data.get('borrower')
+        if borrower =="":
+            return {'state': '借用人不能为空'}, 200
         c = SQLManager()
         sql = "select * from test_resource_record where p_id = '" + pid + "' order by borrow_data desc limit 1"
         value = c.sel_box(sql)
-        print(value)
         if len(value)>0:
             if not value[0][4]:
-                return {'state': '仍未归还，不可借出'}, 500
+                return {'state': '仍未归还，不可借出'}, 200
         sql = "INSERT INTO test_resource_record (p_id,borrower,borrow_data) VALUES ('" + str(
             pid) + "','" + str(borrower) + "',DATETIME('now', 'localtime'))"
         c.insert_spl(
@@ -346,10 +347,9 @@ def return_resource():
         c = SQLManager()
         sql = "select * from test_resource_record where p_id = '" + pid + "' order by borrow_data desc limit 1"
         value = c.sel_box(sql)
-        print(value)
         if len(value) > 0:
             if value[0][4]:
-                return {'state': '已归还，无需再还'}, 500
+                return {'state': '已归还，无需再还'}, 200
         sql = "update test_resource_record set revert_date = DATETIME('now', 'localtime') where id = "+str(value[0][0])
         c.insert_spl(
             sql)
